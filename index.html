@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="weatherApp">
+<head>
+  <meta charset="UTF-8">
+    
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Weather app</title>
+</head>
+<body class="gradient">
+
+  <div ng-controller="weatherController as vm" class="container">
+    
+     <h1>{{vm.headings.mheading}}</h1><br>
+     <h2>{{vm.headings.subheading}}</h2><br>
+     <h3>Location: {{vm.location}}<br>
+     Weather report: {{vm.description | uppercase}}
+      <img ng-src="{{vm.icon}}"/><br>
+     Wind speed: {{vm.speed}}<br></h3>
+
+     <h3>Temperature: <a class="btn btn-danger"
+      ng-init="tempVal=true" ng-hide="tempVal" ng-click="tempVal=!tempVal">
+      {{vm.tempF}}
+     
+      <a class="btn btn-danger"
+      ng-init="tempVal=true" ng-show="tempVal" ng-click="tempVal=!tempVal">
+      {{vm.tempC}}</a>
+    </h3>
+     <hr>
+
+   <footer>Created by <a href ="https://www.linkedin.com/in/marina-shemesh-98133311/" target="_blank">Marina Shemesh</a></footer>
+  </div>
+
+</body>
+   <script src="js/angular.min.js"></script>
+   <script src="js/app.js"></script>
+   <script src="js/controller/weatherController.js"></script>
+</html>
