@@ -33,6 +33,16 @@ angular.module('weatherApp', [])
                     vm.tempC = (vm.temp - 273).toFixed(1) + "° C";
                     vm.tempF = (5/9*(vm.temp-273) + 32).toFixed(1) + "° F";
                     vm.icon = wicon + ".png";
+					
+					const sr = new Date(data.sys.sunrise*1000);
+                    const sunriseTime = sr.getHours() + " am";
+                    const minutesSR = sr.getMinutes() + " min";
+                    vm.sunrise = sunriseTime + " " + minutesSR;
+
+                    const ss = new Date(data.sys.sunset*1000);
+                    const sunsetTime = ss.getHours() + " pm";
+                    const minutesSS = ss.getMinutes() + " min";
+                    vm.sunset = sunsetTime + " " + minutesSS;
                 });
              });
       
