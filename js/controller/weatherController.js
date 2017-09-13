@@ -43,6 +43,20 @@ angular.module('weatherApp', [])
                     const sunsetTime = ss.getHours() + " pm";
                     const minutesSS = ss.getMinutes() + " min";
                     vm.sunset = sunsetTime + " " + minutesSS;
+					
+					const ss = new Date(data.sys.sunset*1000);
+                    const sunsetTime = ss.getHours() + " pm";
+                    const minutesSS = ss.getMinutes() + " min";
+                    vm.sunset = sunsetTime + " " + minutesSS;
+
+                    const todayDate = new Date(data.dt*1000);                    
+                    const day = todayDate.getDate();
+
+                    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+                    const month = months[todayDate.getMonth()];
+                    
+                    const year = todayDate.getFullYear();
+                    vm.date = day + " " + month + " " + year;
                 });
              });
       
